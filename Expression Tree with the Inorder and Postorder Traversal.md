@@ -13,12 +13,13 @@ To write a Python program to build the given expression tree and print the inord
 6. **End the program.**
 
 ## PROGRAM:
-
+```
 from binarytree import build,Node
 x=['*',4,'-',5,'+',2,7]
 t=build(x)
 print(t.inorder)
 print(t.postorder)
+```
 
 ## OUTPUT
 
