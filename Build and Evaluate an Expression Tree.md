@@ -3,8 +3,6 @@
 ## AIM:
 To write a Python program to build and evaluate the given Expression tree.
 
----
-
 ## ALGORITHM:
 
 1. **Start the program.**
@@ -17,17 +15,49 @@ To write a Python program to build and evaluate the given Expression tree.
 5. Return the final result from the root node.
 6. **End the program.**
 
----
-
 ## PROGRAM:
-
 ```
-WRITE YOUR CODE
-```
+class Node:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
+def isLeaf(node):
+    return node.left is None and node.right is None
+ 
+def process(op, x, y):
+    if op == '+':
+        return x + y
+    if op == '-':
+        return x - y
+    if op == '*':
+        return x * y
+    if op == '/':
+        return x / y
+ 
+def evaluate(root):
+    if root is None:
+        return 0
+    if isLeaf(root):
+        return float(root.val)
+    x=evaluate(root.left)
+    y=evaluate(root.right)
+    return (process(root.val,x,y))
+root=Node('+')
+root.left=Node('*')
+root.right=Node('3')
+root.left.left=Node('4')
+root.left.right=Node('8')
+
+print("The value of the expression tree is",evaluate(root))
+ ```
 ## OUTPUT:
-```
-```
+
+![image](https://github.com/user-attachments/assets/8a64b3e6-cb59-4cba-963c-d5519b029d43)
+
 
 ## RESULT:
+
+Thus the Python program to build and evaluate the given Expression tree has been implemented and executed successfully.
 
